@@ -1,0 +1,136 @@
+'use client'
+
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { site } from '@/lib/site'
+import { cn } from '@/lib/utils'
+
+const slides = [
+  {
+    image: '/images/hero1.jpg',
+    alt: 'Mukono Junior School grounds at golden hour',
+    eyebrow: 'A place to belong',
+    title: 'Learning with heart, growing with pride.',
+    description:
+      'A joyful, ambitious community helping every child discover their confidence and potential.',
+  },
+  {
+    image: '/images/hero2.jpeg',
+    alt: 'Students learning together in a bright classroom',
+    eyebrow: 'Curious minds',
+    title: 'Every lesson opens a new door.',
+    description:
+      'Our classrooms make space for questions, creativity, and the steady confidence that comes from being supported.',
+  },
+  {
+    image: '/images/hero3.webp',
+    alt: 'Students reading in the school library',
+    eyebrow: 'Room to imagine',
+    title: 'Big ideas start with a good story.',
+    description:
+      'From Baby Class through P.7, we nurture a love of reading and the imagination to see what is possible.',
+  },
+  {
+    image: '/images/hero4.jpg',
+    alt: 'Students playing football on the school grounds',
+    eyebrow: 'Growing together',
+    title: 'Confidence is built beyond the classroom.',
+    description:
+      'Sport, friendship, and service help children build character, resilience, and pride in their community.',
+  },
+] as const
+
+export function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length)
+    }, 6500)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
+  const slide = slides[activeSlide]
+
+  const goToSlide = (index: number) => {
+    setActiveSlide((index + slides.length) % slides.length)
+  }
+
+  return (
+    <section className="relative isolate overflow-hidden bg-cream pb-8 pt-20 sm:pt-24">
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-[background-image] duration-700"
+        style={{ backgroundImage: `url('${slide.image}')` }}
+        role="img"
+        aria-label={slide.alt}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-leaf-deep/90 via-leaf-deep/62 to-leaf-deep/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/75 via-charcoal/10 to-transparent sm:from-charcoal/45" />
+
+      <div className="relative mx-auto flex min-h-[610px] max-w-6xl items-end px-4 pb-16 pt-24 sm:min-h-[680px] sm:items-center sm:px-8 sm:py-16">
+        <div className="glass-cream w-[calc(100%-1rem)] max-w-2xl rounded-[1.5rem] border border-white/45 bg-cream/60 p-6 shadow-2xl shadow-charcoal/20 backdrop-blur-lg sm:w-auto sm:rounded-[2rem] sm:bg-cream/75 sm:p-12 sm:backdrop-blur-xl">
+          <p className="font-display text-sm font-800 uppercase tracking-[0.2em] text-accent">
+            {slide.eyebrow}
+          </p>
+          <h1 className="mt-3 text-balance font-display text-3xl font-800 leading-[1.03] text-primary sm:mt-4 sm:text-6xl">
+            {slide.title}
+          </h1>
+          <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-charcoal/80 sm:mt-5 sm:text-xl">
+            {slide.description}
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
+            <Link
+              href="/contact"
+              className="rounded-full bg-accent px-7 py-3.5 font-800 text-accent-foreground shadow-lg shadow-accent/20 transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              Click Here
+            </Link>
+            <span className="text-sm font-700 text-primary/65">
+              {site.location} · Baby Class – P.7
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-8 z-10 mx-auto flex max-w-6xl items-center justify-between px-5 sm:px-8">
+        <div className="flex items-center gap-2" aria-label="Hero slides">
+          {slides.map((item, index) => (
+            <button
+              key={item.image}
+              type="button"
+              onClick={() => goToSlide(index)}
+              className={cn(
+                'h-2 rounded-full transition-all duration-300',
+                index === activeSlide
+                  ? 'w-10 bg-white'
+                  : 'w-2 bg-white/55 hover:bg-white/85',
+              )}
+              aria-label={`Show slide ${index + 1}`}
+              aria-current={index === activeSlide ? 'true' : undefined}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => goToSlide(activeSlide - 1)}
+            className="grid size-10 place-items-center rounded-full border border-white/50 bg-leaf-deep/45 text-white backdrop-blur-md transition-colors hover:bg-leaf-deep/75"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="size-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => goToSlide(activeSlide + 1)}
+            className="grid size-10 place-items-center rounded-full border border-white/50 bg-leaf-deep/45 text-white backdrop-blur-md transition-colors hover:bg-leaf-deep/75"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="size-5" />
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
