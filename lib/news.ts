@@ -29,6 +29,7 @@ export type NewsMeta = {
   date: string
   description: string
   image?: string
+  href?: string
 }
 
 export type NewsItem = NewsMeta & {

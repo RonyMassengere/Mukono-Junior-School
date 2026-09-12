@@ -55,21 +55,57 @@ export function SiteNav() {
           </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    'relative rounded-full px-3 py-2 text-sm font-700 text-[#303f9f] transition-colors duration-200 hover:bg-[#f7e600]/25 hover:text-[#c91f2b]',
-                    isActive(item.href)
-                      ? 'text-accent accent-underline'
-                      : 'text-[#303f9f]',
-                  )}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {nav.map((item) => {
+              if ('items' in item && item.items) {
+                return (
+                  <li key={item.label} className="relative group py-2">
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        'relative inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-700 text-[#303f9f] transition-colors duration-200 hover:bg-[#f7e600]/25 hover:text-[#c91f2b]',
+                        isActive(item.href)
+                          ? 'text-accent accent-underline'
+                          : 'text-[#303f9f]',
+                      )}
+                    >
+                      {item.label}
+                      <span className="text-xs">▾</span>
+                    </Link>
+
+                    <div className="absolute left-1/2 top-full z-20 mt-0 w-60 -translate-x-1/2 rounded-2xl border border-border bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto -translate-y-2 pointer-events-none">
+                      {item.items.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          className={cn(
+                            'block rounded-xl px-3 py-2 text-sm font-600 text-foreground transition-colors hover:bg-muted hover:text-accent',
+                            isActive(subItem.href) && 'bg-primary/5 text-accent',
+                          )}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </li>
+                )
+              }
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'relative rounded-full px-3 py-2 text-sm font-700 text-[#303f9f] transition-colors duration-200 hover:bg-[#f7e600]/25 hover:text-[#c91f2b]',
+                      isActive(item.href)
+                        ? 'text-accent accent-underline'
+                        : 'text-[#303f9f]',
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
 
           <div className="flex items-center gap-2">
@@ -103,23 +139,63 @@ export function SiteNav() {
               : 'pointer-events-none max-h-0 opacity-0',
           )}
         >
-            <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-5 pb-5">
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'block rounded-xl px-4 py-3 text-base font-600 transition-[background-color,color,transform,opacity] duration-300',
-                      open ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0',
-                      isActive(item.href)
-                        ? 'bg-primary/10 text-accent'
-                        : 'text-foreground hover:bg-muted',
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+            <ul className="mx-auto flex max-w-6xl flex-col gap-2 px-5 pb-5">
+              {nav.map((item) => {
+                if ('items' in item && item.items) {
+                  return (
+                    <li key={item.label} className="rounded-2xl border border-border bg-muted/40 p-2">
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          'block rounded-xl px-4 py-3 text-base font-700 transition-[background-color,color,transform,opacity] duration-300',
+                          open ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0',
+                          isActive(item.href)
+                            ? 'bg-primary/10 text-accent'
+                            : 'text-foreground hover:bg-muted',
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+
+                      <ul className="mt-2 space-y-1 pl-3">
+                        {item.items.map((subItem) => (
+                          <li key={subItem.href}>
+                            <Link
+                              href={subItem.href}
+                              className={cn(
+                                'block rounded-xl px-4 py-2 text-sm font-600 transition-colors',
+                                open ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0',
+                                isActive(subItem.href)
+                                  ? 'bg-primary/10 text-accent'
+                                  : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                              )}
+                            >
+                              {subItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  )
+                }
+
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        'block rounded-xl px-4 py-3 text-base font-600 transition-[background-color,color,transform,opacity] duration-300',
+                        open ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0',
+                        isActive(item.href)
+                          ? 'bg-primary/10 text-accent'
+                          : 'text-foreground hover:bg-muted',
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
             <div
               className={cn(

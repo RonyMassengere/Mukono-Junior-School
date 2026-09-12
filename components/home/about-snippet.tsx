@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { ArrowRight, Library, Accessibility, Home } from 'lucide-react'
+import { ArrowRight, Library, GraduationCap, Home } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
 const facilities = [
   { icon: Library, label: 'Well-stocked library & resource centre' },
   { icon: Home, label: 'Student dormitories on a spacious compound' },
-  { icon: Accessibility, label: 'Wheelchair-accessible entrance & parking' },
+  { icon: GraduationCap, label: 'Quality education for every learner' },
 ]
 
 export function AboutSnippet() {

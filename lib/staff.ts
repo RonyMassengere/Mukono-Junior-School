@@ -1,47 +1,73 @@
-// Staff directory. Names below are PLACEHOLDERS — replace with the school's
-// real staff. Add an `image` field (e.g. "/images/staff/name.png") to show a
-// photo; otherwise a warm monogram is displayed automatically.
+// Staff directory. Names below are placeholders; replace them with real
+// staff information as the school finalises its leadership and teaching team.
 
 export type StaffMember = {
   name: string
   role: string
   bio?: string
   image?: string
+  secondaryImage?: string
+  gender?: 'male' | 'female'
 }
 
 export const leadership: StaffMember[] = [
   {
-    name: 'Head Teacher (Name)',
+    name: 'Katongole Nabil',
     role: 'Head Teacher',
-    bio: 'Leads the school with a focus on academic excellence and strong character.',
+    bio: 'Leads the school with a focus on academic excellence, discipline, and pupil wellbeing.',
+    image: '/images/staff/HM_SP.jpeg',
+    secondaryImage: '/images/staff/HM.jpeg',
   },
   {
-    name: 'Deputy Head (Name)',
+    name: 'Muwonge Daniel',
+    role: 'Director of School',
+    bio: 'Oversees school operations, strategic planning, and quality learning standards.',
+    image: '/images/staff/ACC.jpeg',
+  },
+  {
+    name: 'Nassali Sarah',
     role: 'Deputy Head Teacher',
-    bio: 'Supports daily school life, discipline, and pupil wellbeing.',
-  },
-  {
-    name: 'Director of Studies (Name)',
-    role: 'Director of Studies',
-    bio: 'Oversees the curriculum and prepares pupils for their examinations.',
+    bio: 'Supports school administration, pupil welfare, and daily routines across the school community.',
+    image: '/images/staff/DeputyHM.jpeg',
   },
 ]
 
-export const teachers: StaffMember[] = [
-  { name: 'Teacher (Name)', role: 'Baby & Nursery Class' },
-  { name: 'Teacher (Name)', role: 'Lower Primary (P.1 – P.3)' },
-  { name: 'Teacher (Name)', role: 'Upper Primary (P.4 – P.7)' },
-  { name: 'Teacher (Name)', role: 'Games & Sports Coach' },
-  { name: 'Teacher (Name)', role: 'Debating Club Patron' },
-  { name: 'Teacher (Name)', role: 'Librarian & Resource Centre' },
+export const prefectorialBody: StaffMember[] = [
+  {
+    name: 'School Prefectorial Body',
+    role: 'Prefectorial Leadership',
+    gender: 'male',
+    image: '/images/staff/prefects.jpeg',
+  },
+]
+
+export const maleTeachers: StaffMember[] = [
+  {
+    name: 'Male Staff Teachers',
+    role: 'School Teaching Team',
+    gender: 'male',
+    image: '/images/staff/male_teachers.jpeg',
+  },
+]
+
+export const femaleTeachers: StaffMember[] = [
+  {
+    name: 'Female Staff Teachers',
+    role: 'School Teaching Team',
+    gender: 'female',
+    image: '/images/staff/female_teachers.jpeg',
+  },
 ]
 
 export function initials(name: string): string {
   const cleaned = name.replace(/\(.*?\)/g, '').trim()
   const parts = cleaned.split(/\s+/).filter(Boolean)
   if (parts.length === 0) return 'MJS'
-  return parts
+
+  const result = parts
     .slice(0, 2)
     .map((p) => p[0]?.toUpperCase() ?? '')
     .join('')
+
+  return result || 'MJS'
 }

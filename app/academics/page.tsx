@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import {
   Baby,
   BookOpen,
@@ -72,10 +71,10 @@ const learningStages = [
 ]
 
 const practicalLearning = [
-  { icon: Monitor, title: 'ICT & computer literacy', image: '/images/academics/ict computer learning.jpg', body: 'Age-appropriate digital skills, responsible technology use, and practical computer confidence.' },
-  { icon: Sprout, title: 'Agriculture & Home Science', image: '/images/academics/agricutlure.jpg', body: 'Hands-on projects such as gardening, care for the environment, and useful everyday skills.' },
-  { icon: Palette, title: 'Creative Arts', image: '/images/academics/creative.jpeg', body: 'Music, dance, drama, drawing, and making give children a space to express ideas and culture.' },
-  { icon: Volleyball, title: 'Physical Education', image: '/images/academics/physical.jpeg', body: 'Games and sports build fitness, teamwork, discipline, and resilience alongside classroom learning.' },
+  { icon: Monitor, title: 'ICT & computer literacy', body: 'Age-appropriate digital skills, responsible technology use, and practical computer confidence.' },
+  { icon: Sprout, title: 'Agriculture & Home Science', body: 'Hands-on projects such as gardening, care for the environment, and useful everyday skills.' },
+  { icon: Palette, title: 'Creative Arts', body: 'Music, dance, drama, drawing, and making give children a space to express ideas and culture.' },
+  { icon: Volleyball, title: 'Physical Education', body: 'Games and sports build fitness, teamwork, discipline, and resilience alongside classroom learning.' },
 ]
 
 const resources = [
@@ -202,25 +201,16 @@ export default function AcademicsPage() {
           description="The timetable makes room for creativity, physical wellbeing, digital confidence, and useful practical experiences."
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {practicalLearning.map(({ icon: Icon, title, image, body }, i) => (
+          {practicalLearning.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={(i % 2) * 90}>
-              <article className="overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="relative flex h-40 items-center justify-center bg-muted sm:h-44">
-                  <Image
-                    src={image}
-                    alt=""
-                    fill
-                    className="object-cover opacity-70"
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                  />
-                  <span className="relative grid size-12 place-items-center rounded-xl bg-secondary text-secondary-foreground shadow-sm">
+              <article className="rounded-2xl border border-border bg-card p-6">
+                <div className="flex items-center gap-4">
+                  <span className="grid size-12 place-items-center rounded-xl bg-secondary text-secondary-foreground shadow-sm">
                     <Icon className="size-6" />
                   </span>
-                </div>
-                <div className="p-6">
                   <h3 className="font-display text-lg font-800 text-primary">{title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
                 </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{body}</p>
               </article>
             </Reveal>
           ))}
@@ -234,13 +224,20 @@ export default function AcademicsPage() {
               <p className="font-display text-sm font-700 uppercase tracking-[0.18em] text-secondary">Progress & Achievement</p>
               <h2 className="mt-2 font-display text-3xl font-800 sm:text-4xl">Progress worth celebrating</h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-primary-foreground/80">
-                Through continuous assessment, teacher feedback, and purposeful revision, we help each learner make progress. Our pupils also grow in confidence through debating, mathematics activities, spelling, sport, and other school competitions.
+                Through continuous assessment, teacher feedback, and purposeful revision, we help each learner make progress. Our pupils also grow in confidence through debating, mathematics activities, spelling, reading, and other classroom and school enrichment experiences.
               </p>
             </div>
-            <div className="rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6 lg:max-w-xs">
-              <Trophy className="size-8 text-secondary" />
-              <p className="mt-3 font-display text-lg font-800">District football champions</p>
-              <p className="mt-1 text-sm text-primary-foreground/75">A proud example of teamwork and commitment beyond the classroom.</p>
+            <div className="grid gap-4 lg:max-w-xs">
+              <div className="rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6">
+                <GraduationCap className="size-8 text-secondary" />
+                <p className="mt-3 font-display text-lg font-800">Education achievement</p>
+                <p className="mt-1 text-sm text-primary-foreground/75">Strong academic growth supported by regular feedback, revision, and guided learning.</p>
+              </div>
+              <div className="rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6">
+                <Users className="size-8 text-secondary" />
+                <p className="mt-3 font-display text-lg font-800">Long-term service</p>
+                <p className="mt-1 text-sm text-primary-foreground/75">Committed leadership and experienced teachers who support pupils through many school years.</p>
+              </div>
             </div>
           </div>
         </div>

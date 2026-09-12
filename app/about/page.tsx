@@ -67,26 +67,28 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="relative rounded-3xl border border-border bg-card p-8">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
               <LeafAccent className="absolute -left-4 -top-4 size-12 -rotate-12" />
-              <h3 className="font-display text-xl font-700 text-primary">
-                At a glance
-              </h3>
-              <dl className="mt-6 space-y-5">
-                {[
-                  ['Location', 'Mukono, Uganda'],
-                  ['Levels', 'Baby Class – Primary 7'],
-                  ['Setting', 'Spacious compound with dormitories'],
-                  ['Accessibility', 'Wheelchair-accessible entrance & parking'],
-                ].map(([term, def]) => (
-                  <div key={term} className="flex flex-col gap-1 border-b border-border pb-4 last:border-0 last:pb-0">
-                    <dt className="text-xs font-700 uppercase tracking-wide text-accent">
-                      {term}
-                    </dt>
-                    <dd className="font-600 text-foreground">{def}</dd>
+              <div
+                className="relative h-full min-h-[420px] w-full bg-cover bg-center"
+                style={{
+                  backgroundImage:
+                    "url('/test_IMAGES/hero3.jpeg')",
+                }}
+                aria-label="School image placeholder"
+                role="img"
+              >
+                <div className="flex h-full min-h-[420px] items-end bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-transparent p-6 sm:p-8">
+                  <div className="max-w-xs rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+                    <p className="text-xs font-700 uppercase tracking-[0.18em] text-cream/90">
+                      School Life
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl font-700 text-white">
+                      Mukono Junior School
+                    </h3>
                   </div>
-                ))}
-              </dl>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

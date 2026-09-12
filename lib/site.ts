@@ -31,6 +31,13 @@ export const nav = [
   { label: 'Academics', href: '/academics' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Staff', href: '/staff' },
-  { label: 'News', href: '/news' },
+  {
+    label: 'News',
+    href: '/news',
+    items: [
+      { label: 'Events', href: '/news/events' },
+      { label: 'School Facilities', href: '/news/facilities' },
+    ],
+  },
   { label: 'Contact', href: '/contact' },
 ] as const

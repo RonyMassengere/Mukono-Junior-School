@@ -4,9 +4,11 @@ import { CalendarDays, ArrowUpRight } from 'lucide-react'
 import { formatDate, type NewsMeta } from '@/lib/news'
 
 export function NewsCard({ item }: { item: NewsMeta }) {
+  const href = item.href ?? `/news/${item.slug}`
+
   return (
     <Link
-      href={`/news/${item.slug}`}
+      href={href}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-18px_rgba(43,38,33,0.4)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-muted">
