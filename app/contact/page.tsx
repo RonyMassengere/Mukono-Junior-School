@@ -111,7 +111,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Mukono+Junior+School%2C+Mukono%2C+Uganda"
+                    href="https://www.google.com/maps/search/?api=1&query=0.38786860090753267,32.76774394424458"
                     target="_blank"
                     rel="noreferrer"
                     className="shrink-0 rounded-full bg-secondary px-4 py-2 text-xs font-800 text-secondary-foreground transition-transform hover:scale-105"
@@ -120,11 +120,12 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <iframe
-                  title="Map showing Mukono Junior School in Mukono, Uganda"
-                  src="https://www.google.com/maps?q=Mukono+Junior+School%2C+Mukono%2C+Uganda&output=embed"
+                  title="Map showing Mukono Junior School in Takkajunge, Mukono, Uganda"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.4317248631041!2d32.76774394424458!3d0.38786860090753267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dc9000b891be3%3A0xb6f25ba42139b82d!2sMUKONO%20JUNIOR%20SCHOOL-%20TAKKAJUNGE!5e0!3m2!1sen!2sug!4v1789234698523!5m2!1sen!2sug"
                   className="h-64 w-full border-0 sm:h-72"
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
                 />
               </div>
             </div>

@@ -41,16 +41,18 @@ export function SiteNav() {
             <Image
               src="/mjs-logo.png"
               alt="MJS"
-              width={44}
-              height={44}
-              className="size-11 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
+              width={52}
+              height={52}
+              className="size-[3.25rem] rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
               priority
             />
             <span className="flex min-w-0 flex-col leading-tight">
-              <span className="font-display text-base font-700 text-primary">
+              <span className="font-display text-lg font-800 tracking-tight text-primary sm:text-xl">
                 {site.name}
               </span>
-              <span className="hidden text-xs text-muted-foreground sm:block">{site.location}</span>
+              <span className="hidden text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:block">
+                Takkajunge
+              </span>
             </span>
           </Link>
 

@@ -19,16 +19,16 @@ export const leadership: StaffMember[] = [
     secondaryImage: '/images/staff/HM.jpeg',
   },
   {
-    name: 'Muwonge Daniel',
-    role: 'Director of School',
+    name: 'Onyu Augstine',
+    role: 'Accountant of School',
     bio: 'Oversees school operations, strategic planning, and quality learning standards.',
     image: '/images/staff/ACC.jpeg',
   },
   {
-    name: 'Nassali Sarah',
+    name: '',
     role: 'Deputy Head Teacher',
     bio: 'Supports school administration, pupil welfare, and daily routines across the school community.',
-    image: '/images/staff/DeputyHM.jpeg',
+    image: '',
   },
 ]
 

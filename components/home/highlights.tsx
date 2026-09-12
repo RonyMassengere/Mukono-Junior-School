@@ -10,8 +10,8 @@ const highlights = [
   },
   {
     icon: Trophy,
-    title: 'Champions on the Field',
-    body: 'Mukono District Champions in the FUFA Primary Schools Championship (Odilo) — proud of our young athletes.',
+    title: 'A Strong School Culture',
+    body: 'Children grow in a confident, disciplined environment where learning, teamwork, and character are valued every day.',
   },
   {
     icon: Sprout,

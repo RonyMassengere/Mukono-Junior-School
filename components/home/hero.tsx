@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 const slides = [
   {
-    image: '/test_IMAGES/hero5.jpeg',
+    image: '/images/hero/hero5.jpeg',
     alt: 'Mukono Junior School grounds at golden hour',
     eyebrow: 'A place to belong',
     title: 'Learning with heart, growing with pride.',
@@ -16,7 +16,7 @@ const slides = [
       'A joyful, ambitious community helping every child discover their confidence and potential.',
   },
   {
-    image: '/test_IMAGES/hero2.jpeg',
+    image: '/images/hero/hero2.jpeg',
     alt: 'Students learning together in a bright classroom',
     eyebrow: 'Curious minds',
     title: 'Every lesson opens a new door.',
@@ -24,7 +24,7 @@ const slides = [
       'Our classrooms make space for questions, creativity, and the steady confidence that comes from being supported.',
   },
   {
-    image: '/test_IMAGES/hero3.jpeg',
+    image: '/images/hero/hero3.jpeg',
     alt: 'Students reading in the school library',
     eyebrow: 'Room to imagine',
     title: 'Big ideas start with a good story.',
@@ -32,7 +32,7 @@ const slides = [
       'From Baby Class through P.7, we nurture a love of reading and the imagination to see what is possible.',
   },
   {
-    image: '/test_IMAGES/hero4.jpeg',
+    image: '/images/hero/hero4.jpeg',
     alt: 'Students playing football on the school grounds',
     eyebrow: 'Growing together',
     title: 'Confidence is built beyond the classroom.',

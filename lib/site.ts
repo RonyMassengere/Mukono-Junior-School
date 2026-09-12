@@ -9,7 +9,7 @@ export const site = {
     'Mukono Junior School is a primary school in Mukono, Uganda, fostering academic excellence, self-discipline, mutual respect, and community service from Baby Class through P.7.',
   // TODO: replace with the real deployed domain before launch.
   url: 'https://mukono-junior-school.example',
-  location: 'Mukono, Uganda',
+  location: 'Takkajunge, Mukono, Uganda',
   poBox: 'P.O. Box 349, Mukono',
   email: 'mukonojunior@gmail.com',
   phones: ['0701 651 477', '0776 484 612'],
@@ -22,7 +22,7 @@ export const site = {
   },
   // Formspree endpoint — replace "yourFormId" with the school's real form ID.
   // Create a free form at https://formspree.io and paste the endpoint here.
-  formspreeEndpoint: 'https://formspree.io/f/yourFormId',
+  formspreeEndpoint: 'https://formspree.io/f/xwlkjgvy',
 } as const
 
 export const nav = [
