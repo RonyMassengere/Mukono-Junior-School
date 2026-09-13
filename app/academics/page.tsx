@@ -81,12 +81,12 @@ const resources = [
   {
     title: 'Academic calendar',
     description: 'Term dates, visitation days, midterm breaks, and examination weeks.',
-    href: '#academic-calendar',
+    href: '/parents-hub',
   },
   {
     title: 'School requirements list',
     description: 'Scholastic materials, uniforms, and day or boarding requirements.',
-    href: '#school-requirements',
+    href: '/parents-hub',
   },
 ]
 

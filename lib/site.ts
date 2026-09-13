@@ -29,6 +29,7 @@ export const nav = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Academics', href: '/academics' },
+  { label: 'Parents Hub', href: '/parents-hub' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Staff', href: '/staff' },
   {
