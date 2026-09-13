@@ -232,17 +232,17 @@ export function ParentHub() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-5 lg:py-14">
-        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="font-display text-xs font-700 uppercase tracking-[0.2em] text-accent">Parents' Hub</p>
-            <h1 className="mt-2 max-w-2xl font-display text-3xl font-800 text-primary sm:text-4xl lg:text-[2.8rem]">
-              School updates, documents & calendar
+      <div className="mx-auto w-full max-w-6xl px-4 pb-10 pt-16 sm:px-5 md:pt-20 lg:px-8 lg:pb-14 lg:pt-24">
+        <div className="mb-19 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between md:gap-6">
+          <div className="min-w-0 flex-1">
+            <p className="font-display text-xs font-700 uppercase tracking-[0.2em] text-accent mt-10">Parents' Hub</p>
+            <h1 className="mt-4 max-w-2xl font-display text-3xl font-800 leading-tight text-primary sm:text-4xl lg:text-[2.8rem]">
+              School updates, documents &amp; calendar
             </h1>
           </div>
           <a
             href="/academics"
-            className="inline-flex items-center rounded-full border border-border bg-white/70 px-4 py-2.5 text-sm font-700 text-primary shadow-sm backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+            className="inline-flex items-center justify-center rounded-full border border-border bg-white/70 px-4 py-2.5 text-sm font-700 text-primary shadow-sm backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent md:self-end"
           >
             Back to Academics
           </a>
@@ -250,7 +250,7 @@ export function ParentHub() {
 
         <div className="space-y-6">
           <div className="grid gap-6 xl:grid-cols-[1.04fr_0.96fr]">
-            <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5">
+            <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5 lg:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="font-display text-2xl font-800 text-primary">Parent resources</p>
@@ -353,7 +353,7 @@ export function ParentHub() {
             </div>
           </div>
 
-          <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5">
+          <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5 lg:p-6">
             <div className="rounded-[18px] border border-border/80 bg-gradient-to-br from-primary/6 via-white to-primary/4 p-3 sm:p-4">
               <div className="mb-3 flex items-center gap-2">
                 <Clock3 className="size-4 text-accent" />
