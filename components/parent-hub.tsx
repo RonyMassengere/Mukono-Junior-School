@@ -235,8 +235,8 @@ export function ParentHub() {
       <div className="parent-hub-shell mx-auto w-full max-w-6xl px-4 pb-10 pt-8 sm:px-5 md:pt-12 lg:px-8 lg:pb-14 lg:pt-16">
         <div className="parent-hub-header mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-6">
           <div className="min-w-0 flex-1">
-            <p className="font-display text-xs font-700 uppercase tracking-[0.2em] text-accent">Parents' Hub</p>
-            <h1 className="parent-hub-title mt-3 max-w-2xl font-display text-2xl font-800 leading-[1.08] text-primary sm:text-3xl md:text-4xl lg:text-[2.8rem]">
+            <p className="font-display text-xs font-700 uppercase tracking-[0.2em] text-accent mt-20">Parents' Hub</p>
+            <h1 className="parent-hub-title mt-2 max-w-2xl font-display text-2xl font-800 leading-[1.08] text-primary sm:text-3xl md:text-4xl lg:text-[2.8rem]">
               School updates, documents &amp; calendar
             </h1>
           </div>
