@@ -17,7 +17,14 @@ function Avatar({ member, size }: { member: StaffMember; size: 'lg' | 'md' }) {
   if (member.image) {
     return (
       <div className={`relative ${dimension} overflow-hidden rounded-2xl border border-border bg-muted`}>
-        <Image src={member.image || '/placeholder.svg'} alt={member.name} fill className="object-cover" />
+        <Image
+          src={member.image || '/placeholder.svg'}
+          alt={member.name}
+          fill
+          sizes="(max-width: 768px) 100vw, 20vw"
+          quality={80}
+          className="object-cover"
+        />
       </div>
     )
   }
@@ -53,6 +60,7 @@ function StaffSection({ title, description, members }: { title: string; descript
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </div>
             <div className="p-5">
@@ -91,6 +99,7 @@ export default function StaffPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
+                    quality={80}
                   />
                 </div>
                 <div className="p-5">
@@ -119,6 +128,7 @@ export default function StaffPage() {
                     className="object-cover object-center"
                     style={{ objectPosition: 'left center' }}
                     sizes="(max-width: 768px) 100vw, 25vw"
+                    quality={85}
                   />
                 </div>
               </div>
@@ -158,6 +168,7 @@ export default function StaffPage() {
                   fill
                   className="object-cover"
                   sizes="100vw"
+                  quality={85}
                 />
               </div>
               <div className="p-5">

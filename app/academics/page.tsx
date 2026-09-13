@@ -203,12 +203,12 @@ export default function AcademicsPage() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           {practicalLearning.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={(i % 2) * 90}>
-              <article className="rounded-2xl border border-border bg-card p-6">
-                <div className="flex items-center gap-4">
-                  <span className="grid size-12 place-items-center rounded-xl bg-secondary text-secondary-foreground shadow-sm">
+              <article className="rounded-2xl border border-border bg-card p-5 sm:p-6">
+                <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-secondary text-secondary-foreground shadow-sm">
                     <Icon className="size-6" />
                   </span>
-                  <h3 className="font-display text-lg font-800 text-primary">{title}</h3>
+                  <h3 className="font-display text-xl font-800 text-primary sm:text-lg">{title}</h3>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{body}</p>
               </article>
@@ -219,25 +219,24 @@ export default function AcademicsPage() {
 
       <section className="bg-primary py-16 text-primary-foreground sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
-              <p className="font-display text-sm font-700 uppercase tracking-[0.18em] text-secondary">Progress & Achievement</p>
-              <h2 className="mt-2 font-display text-3xl font-800 sm:text-4xl">Progress worth celebrating</h2>
-              <p className="mt-4 max-w-2xl leading-relaxed text-primary-foreground/80">
-                Through continuous assessment, teacher feedback, and purposeful revision, we help each learner make progress. Our pupils also grow in confidence through debating, mathematics activities, spelling, reading, and other classroom and school enrichment experiences.
-              </p>
+          <div className="flex flex-col items-center text-center">
+            <p className="font-display text-sm font-700 uppercase tracking-[0.18em] text-secondary">Progress & Achievement</p>
+            <h2 className="mt-2 font-display text-3xl font-800 sm:text-4xl">Progress worth celebrating</h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-primary-foreground/80">
+              Through continuous assessment, teacher feedback, and purposeful revision, we help each learner make progress. Our pupils also grow in confidence through debating, mathematics activities, spelling, reading, and other classroom and school enrichment experiences.
+            </p>
+          </div>
+
+          <div className="mt-8 grid justify-items-center gap-4 md:grid-cols-2">
+            <div className="w-full max-w-md rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6 text-left md:text-center">
+              <GraduationCap className="size-8 text-secondary" />
+              <p className="mt-3 font-display text-lg font-800">Education achievement</p>
+              <p className="mt-1 text-sm text-primary-foreground/75">Strong academic growth supported by regular feedback, revision, and guided learning.</p>
             </div>
-            <div className="grid gap-4 lg:max-w-xs">
-              <div className="rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6">
-                <GraduationCap className="size-8 text-secondary" />
-                <p className="mt-3 font-display text-lg font-800">Education achievement</p>
-                <p className="mt-1 text-sm text-primary-foreground/75">Strong academic growth supported by regular feedback, revision, and guided learning.</p>
-              </div>
-              <div className="rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6">
-                <Users className="size-8 text-secondary" />
-                <p className="mt-3 font-display text-lg font-800">Long-term service</p>
-                <p className="mt-1 text-sm text-primary-foreground/75">Committed leadership and experienced teachers who support pupils through many school years.</p>
-              </div>
+            <div className="w-full max-w-md rounded-2xl border border-secondary/35 bg-primary-foreground/10 p-6 text-left md:text-center">
+              <Users className="size-8 text-secondary" />
+              <p className="mt-3 font-display text-lg font-800">Long-term service</p>
+              <p className="mt-1 text-sm text-primary-foreground/75">Committed leadership and experienced teachers who support pupils through many school years.</p>
             </div>
           </div>
         </div>

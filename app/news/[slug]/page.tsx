@@ -58,7 +58,14 @@ export default async function NewsDetailPage({
 
         {item.image && (
           <div className="relative mt-4 aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-muted">
-            <Image src={item.image || '/placeholder.svg'} alt={item.title} fill className="object-cover" />
+            <Image
+              src={item.image || '/placeholder.svg'}
+              alt={item.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 80vw"
+              quality={85}
+              className="object-cover"
+            />
           </div>
         )}
 

@@ -66,7 +66,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${baloo.variable} ${nunito.variable} bg-background`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${baloo.variable} ${nunito.variable} bg-background`}
+    >
       <body className="antialiased paper-bg min-h-screen flex flex-col">
         <SiteNav />
         <main className="flex-1">{children}</main>

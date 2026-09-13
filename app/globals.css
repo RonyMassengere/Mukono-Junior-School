@@ -111,6 +111,27 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .max-w-6xl,
+    .max-w-5xl,
+    .max-w-3xl,
+    .max-w-2xl {
+      max-width: calc(100% - 1.5rem);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    html {
+      scrollbar-width: none;
+    }
+    html::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
   }
   h1,
   h2,
@@ -157,6 +178,24 @@
     background-image: url('/images/paper-texture.png');
     background-size: 420px;
     background-repeat: repeat;
+  }
+
+  .skeleton-base {
+    background: linear-gradient(90deg, rgba(48, 63, 159, 0.08) 25%, rgba(247, 230, 0, 0.12) 50%, rgba(48, 63, 159, 0.08) 75%);
+    background-size: 200% 100%;
+  }
+
+  .skeleton-shimmer {
+    animation: shimmer 1.4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
 
   /* Scroll reveal: elements start hidden, .is-visible reveals them */

@@ -1,11 +1,11 @@
 'use client'
 
-import Image from 'next/image'
 import { useMemo, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { galleryCategories } from '@/lib/gallery'
 import { cn } from '@/lib/utils'
+import { ImageWithSkeleton } from '@/components/image-with-skeleton'
 
 export function GalleryCategoryGrid() {
   const [activeCategory, setActiveCategory] = useState(galleryCategories[0].id)
@@ -81,12 +81,14 @@ export function GalleryCategoryGrid() {
                   className="group block w-full overflow-hidden rounded-2xl border border-border bg-card text-left shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_18px_30px_-18px_rgba(43,38,33,0.45)]"
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-muted">
-                    <Image
+                    <ImageWithSkeleton
                       src={photo.src}
                       alt={photo.alt}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      quality={80}
+                      wrapperClassName="h-full w-full"
                     />
                   </div>
                   <div className="border-t border-border bg-card/90 px-3 py-2 text-center text-[10px] font-700 uppercase tracking-[0.08em] text-foreground sm:text-sm">
@@ -130,12 +132,16 @@ export function GalleryCategoryGrid() {
               </button>
 
               <div className="relative w-full max-h-[78vh] min-h-[280px] overflow-hidden">
-                <Image
+                <ImageWithSkeleton
                   src={currentPhoto.src}
                   alt={currentPhoto.alt}
                   width={1600}
                   height={1200}
-                  className="h-auto max-h-[78vh] w-full object-contain"
+                  className="h-auto max-h-[78vh] w-full"
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  quality={90}
+                  objectFit="contain"
+                  wrapperClassName="w-full min-h-[280px] max-h-[78vh]"
                 />
               </div>
 

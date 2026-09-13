@@ -73,7 +73,7 @@ export default function AboutPage() {
                 className="relative h-full min-h-[420px] w-full bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('/test_IMAGES/hero3.jpeg')",
+                    "url('/images/hero/hero3.jpeg')",
                 }}
                 aria-label="School image placeholder"
                 role="img"

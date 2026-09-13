@@ -43,6 +43,7 @@ export function SiteNav() {
               alt="MJS"
               width={52}
               height={52}
+              sizes="52px"
               className="size-[3.25rem] rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
               priority
             />

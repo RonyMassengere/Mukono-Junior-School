@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { PageHeader } from '@/components/page-header'
@@ -51,12 +52,16 @@ export default function NewsPage() {
             <Reveal key={section.title} delay={index * 90}>
               <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-18px_rgba(43,38,33,0.45)]">
                 <div className="grid gap-0 md:grid-cols-[minmax(260px,0.9fr)_1.1fr]">
-                  <div
-                    className="relative min-h-[220px] w-full bg-cover bg-center md:min-h-full"
-                    style={{ backgroundImage: section.image }}
-                    aria-label={section.title}
-                    role="img"
-                  />
+                  <div className="relative min-h-[220px] w-full overflow-hidden md:min-h-full">
+                    <Image
+                      src={section.image.replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '')}
+                      alt={section.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 50vw"
+                      quality={80}
+                    />
+                  </div>
                   <div className="flex flex-col justify-center p-6 sm:p-8">
                     <p className="text-xs font-800 uppercase tracking-[0.18em] text-accent">School Update</p>
                     <h2 className="mt-3 font-display text-2xl font-700 text-primary sm:text-3xl">{section.title}</h2>
