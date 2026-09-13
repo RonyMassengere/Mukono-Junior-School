@@ -98,6 +98,7 @@ export default function StaffPage() {
                     alt={member.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: 'right center right' }}
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     quality={80}
                   />

@@ -16,11 +16,11 @@ export type GalleryCategory = {
 const basePhotos = {
   graduation: [
     { src: '/images/gallery/graduation/graduation.jpeg', title: 'Graduation Day', alt: 'Pupils celebrating graduation at school' },
-    { src: '/images/gallery/graduation/graduation2.jpeg', title: 'Graduation Moment', alt: 'School graduation moment with children smiling' },
+    { src: '/images/gallery/graduation/graduation2.jpeg', title: 'Teachers leading graduates', alt: 'School graduation moment with children smiling' },
     { src: '/images/gallery/graduation/graduation3.jpeg', title: 'Proud Graduates', alt: 'Graduating pupils posing proudly' },
-    { src: '/images/gallery/graduation/graduation4.jpeg', title: 'Award Ceremony', alt: 'School ceremony and award presentation' },
-    { src: '/images/gallery/graduation/graduation5.jpeg', title: 'Celebration Day', alt: 'Pupils celebrating a special school ceremony' },
-    { src: '/images/gallery/graduation/gradduation6.jpeg', title: 'Graduation Celebration', alt: 'School celebration with children and families' },
+    { src: '/images/gallery/graduation/graduation4.jpeg', title: 'Graduation cards displayed.', alt: 'School ceremony and award presentation' },
+    { src: '/images/gallery/graduation/graduation5.jpeg', title: 'Honoring graduate achievements', alt: 'Pupils celebrating a special school ceremony' },
+    { src: '/images/gallery/graduation/gradduation6.jpeg', title: 'Ceremonial cake cutting', alt: 'School celebration with children and families' },
   ],
   talent: [
     { src: '/images/gallery/talentMDD/talentMDD1.jpeg', title: 'Talent Showcase', alt: 'Pupils performing at a talent showcase' },
@@ -32,7 +32,7 @@ const basePhotos = {
   ],
   staff: [
     { src: '/images/gallery/staff_gallery/staff_memebers1.jpeg', title: 'Teacher Mentorship', alt: 'Teacher guiding pupils in a classroom' },
-    { src: '/images/gallery/staff_gallery/staff_memebers2.jpeg', title: 'Staff Team', alt: 'Teachers standing together at school' },
+    { src: '/images/gallery/staff_gallery/staff_memebers2.jpeg', title: 'Staff graduation address', alt: 'Teachers standing together at school' },
     { src: '/images/gallery/staff_gallery/staff_memebers3.jpeg', title: 'Learning Support', alt: 'School staff supporting students in class' },
     { src: '/images/gallery/staff_gallery/staff_memebers4.jpeg', title: 'Guiding Hands', alt: 'Teachers helping children understand lessons' },
     { src: '/images/gallery/staff_gallery/staff_memebers5.jpeg', title: 'Caring Educators', alt: 'Teachers interacting with young pupils' },
@@ -40,19 +40,19 @@ const basePhotos = {
   ],
   infrastructure: [
     { src: '/images/gallery/school_facilities/school_facilities1.jpeg', title: 'School Buildings', alt: 'Main school buildings and campus' },
-    { src: '/images/gallery/school_facilities/school_facilities2.jpeg', title: 'School Grounds', alt: 'Open campus grounds and school environment' },
-    { src: '/images/gallery/school_facilities/school_facilities3.jpeg', title: 'School Clinic', alt: 'School clinic and health support area' },
-    { src: '/images/gallery/school_facilities/school_facilities4.jpeg', title: 'School Van', alt: 'School van transporting pupils' },
+    { src: '/images/gallery/school_facilities/school_facilities4.jpeg', title: 'School Grounds', alt: 'Open campus grounds and school environment' },
+    { src: '/images/gallery/school_facilities/school_facilities2.jpeg', title: 'School Clinic', alt: 'School clinic and health support area' },
+    { src: '/images/gallery/school_facilities/school_facilities3.jpeg', title: 'School Van', alt: 'School van transporting pupils' },
     { src: '/images/gallery/school_facilities/school_facilities5.jpeg', title: 'Campus Grounds', alt: 'School facilities and outdoor learning area' },
     { src: '/images/gallery/school_facilities/school_facilities6.jpeg', title: 'Learning Spaces', alt: 'School environment designed for learning' },
   ],
   activities: [
     { src: '/images/gallery/co-activities/co-activities1.jpeg', title: 'Sports Time', alt: 'Pupils taking part in sports and physical activities' },
     { src: '/images/gallery/co-activities/co-activities2.jpeg', title: 'Science Activity', alt: 'Learners conducting a practical science activity' },
-    { src: '/images/gallery/co-activities/co-activities3.jpeg', title: 'Club Time', alt: 'Pupils in a co-curricular club activity' },
-    { src: '/images/gallery/co-activities/co-activities4.jpeg', title: 'Active Learning', alt: 'Children participating in engaging classroom activities' },
-    { src: '/images/gallery/co-activities/co-activities5.jpeg', title: 'School Fun', alt: 'Pupils enjoying a co-curricular activity' },
-    { src: '/images/gallery/co-activities/co-activities6.jpeg', title: 'Confidence Building', alt: 'Pupils developing teamwork and confidence' },
+    { src: '/images/gallery/co-activities/co-activities5.jpeg', title: 'Club Time', alt: 'Pupils in a co-curricular club activity' },
+    { src: '/images/hero/hero1.jpeg', title: 'Active Learning', alt: 'Children participating in engaging classroom activities' },
+    { src: '/images/gallery/co-activities/co-activities3.jpeg', title: 'School Fun', alt: 'Pupils enjoying a co-curricular activity' },
+    { src: '/images/gallery/co-activities/co-activities6.jpeg', title: 'Refreshing swim break', alt: 'Pupils developing teamwork and confidence' },
   ],
 }
 

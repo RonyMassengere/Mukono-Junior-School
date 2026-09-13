@@ -15,20 +15,20 @@ export const leadership: StaffMember[] = [
     name: 'Katongole Nabil',
     role: 'Head Teacher',
     bio: 'Leads the school with a focus on academic excellence, discipline, and pupil wellbeing.',
-    image: '/images/staff/HM_SP.jpeg',
+    image: '/images/HM-main.jpg',
     secondaryImage: '/images/staff/HM.jpeg',
   },
   {
     name: 'Onyu Augstine',
     role: 'Accountant of School',
-    bio: 'Oversees school operations, strategic planning, and quality learning standards.',
+    bio: 'Oversees school finances, budgeting, and financial planning.',
     image: '/images/staff/ACC.jpeg',
   },
   {
     name: '',
-    role: 'Deputy Head Teacher',
-    bio: 'Supports school administration, pupil welfare, and daily routines across the school community.',
-    image: '',
+    role: 'Directors of School',
+    bio: "Provides strategic leadership, governance, and long-term vision to ensure the school`s growth and success.",
+    image: '/images/staff/Directors2.jpg',
   },
 ]
 
