@@ -231,18 +231,18 @@ export function ParentHub() {
   }, [folderId, apiKey])
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto w-full max-w-6xl px-4 pb-10 pt-16 sm:px-5 md:pt-20 lg:px-8 lg:pb-14 lg:pt-24">
-        <div className="mb-19 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between md:gap-6">
+    <section className="parent-hub-page relative overflow-hidden">
+      <div className="parent-hub-shell mx-auto w-full max-w-6xl px-4 pb-10 pt-8 sm:px-5 md:pt-12 lg:px-8 lg:pb-14 lg:pt-16">
+        <div className="parent-hub-header mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-6">
           <div className="min-w-0 flex-1">
-            <p className="font-display text-xs font-700 uppercase tracking-[0.2em] text-accent mt-10">Parents' Hub</p>
-            <h1 className="mt-4 max-w-2xl font-display text-3xl font-800 leading-tight text-primary sm:text-4xl lg:text-[2.8rem]">
+            <p className="font-display text-xs font-700 uppercase tracking-[0.2em] text-accent">Parents' Hub</p>
+            <h1 className="parent-hub-title mt-3 max-w-2xl font-display text-2xl font-800 leading-[1.08] text-primary sm:text-3xl md:text-4xl lg:text-[2.8rem]">
               School updates, documents &amp; calendar
             </h1>
           </div>
           <a
             href="/academics"
-            className="inline-flex items-center justify-center rounded-full border border-border bg-white/70 px-4 py-2.5 text-sm font-700 text-primary shadow-sm backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent md:self-end"
+            className="parent-hub-button inline-flex w-full items-center justify-center rounded-full border border-border bg-white/70 px-4 py-2.5 text-sm font-700 text-primary shadow-sm backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent sm:w-auto md:self-end"
           >
             Back to Academics
           </a>
@@ -250,13 +250,13 @@ export function ParentHub() {
 
         <div className="space-y-6">
           <div className="grid gap-6 xl:grid-cols-[1.04fr_0.96fr]">
-            <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5 lg:p-6">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="parent-resource-card rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5 lg:p-6">
+              <div className="resource-header flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="font-display text-2xl font-800 text-primary">Parent resources</p>
                   <p className="mt-1 text-sm text-muted-foreground">Updated documents from the school drive.</p>
                 </div>
-                <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-800 uppercase tracking-[0.18em] text-primary">
+                <span className="resource-badge inline-flex items-center rounded-full bg-primary/10 px-3 py-1.5 text-[10px] font-800 uppercase tracking-[0.18em] text-primary">
                   Drive
                 </span>
               </div>
@@ -290,16 +290,16 @@ export function ParentHub() {
                     {files.map((file) => (
                       <article
                         key={file.id}
-                        className="rounded-2xl border border-border/80 bg-gradient-to-r from-white via-muted/40 to-primary/[0.02] p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+                        className="resource-item rounded-2xl border border-border/80 bg-gradient-to-r from-white via-muted/40 to-primary/[0.02] p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
                       >
-                        <div className="flex items-start gap-3">
+                        <div className="resource-item-head flex items-start gap-3">
                           <div className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary shadow-inner shadow-primary/10">
                             <FileText className="size-5" />
                           </div>
 
                           <div className="min-w-0 flex-1">
                             <h2 className="font-display text-lg font-800 text-primary">{file.name}</h2>
-                            <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
+                            <div className="resource-meta mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
                               <span>{formatDate(file.modifiedTime)}</span>
                               <span>{formatFileSize(file.size)}</span>
                             </div>
@@ -311,7 +311,7 @@ export function ParentHub() {
                             href={`https://drive.google.com/uc?export=download&id=${file.id}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-700 text-accent-foreground transition-transform duration-200 hover:scale-[1.02]"
+                            className="resource-item-download inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-700 text-accent-foreground transition-transform duration-200 hover:scale-[1.02]"
                           >
                             <Download className="size-4" />
                             Download
@@ -324,19 +324,19 @@ export function ParentHub() {
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5">
-              <div className="mb-4 flex items-center justify-between gap-3">
+            <div className="school-calendar-card rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5">
+              <div className="calendar-header mb-4 flex items-center justify-between gap-3">
                 <div>
                   <p className="font-display text-2xl font-800 text-primary">School calendar</p>
                   <p className="mt-1 text-sm text-muted-foreground">Important dates, school events, and parent reminders.</p>
                 </div>
-                <span className="grid size-11 place-items-center rounded-2xl bg-secondary text-secondary-foreground shadow-sm">
+                <span className="calendar-badge grid size-11 place-items-center rounded-2xl bg-secondary text-secondary-foreground shadow-sm">
                   <CalendarDays className="size-5" />
                 </span>
               </div>
 
               {calendarSrc ? (
-                <div className="overflow-hidden rounded-[18px] border border-border/80 bg-gradient-to-br from-[#f8f9ff] to-[#eef4ff] shadow-inner shadow-primary/5">
+                <div className="calendar-embed overflow-hidden rounded-[18px] border border-border/80 bg-gradient-to-br from-[#f8f9ff] to-[#eef4ff] shadow-inner shadow-primary/5">
                   <iframe
                     src={calendarSrc}
                     title="Mukono Junior School Calendar"
@@ -353,7 +353,7 @@ export function ParentHub() {
             </div>
           </div>
 
-          <div className="rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5 lg:p-6">
+          <div className="key-dates-card rounded-[24px] border border-white/50 bg-white/65 p-4 shadow-[0_20px_60px_-30px_rgba(48,63,159,0.35)] backdrop-blur-xl sm:p-5 lg:p-6">
             <div className="rounded-[18px] border border-border/80 bg-gradient-to-br from-primary/6 via-white to-primary/4 p-3 sm:p-4">
               <div className="mb-3 flex items-center gap-2">
                 <Clock3 className="size-4 text-accent" />

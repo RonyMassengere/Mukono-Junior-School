@@ -123,6 +123,91 @@
     }
   }
 
+  @media (max-width: 440px) {
+    .parent-hub-page {
+      width: 100%;
+    }
+
+    .parent-hub-shell {
+      max-width: 100%;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    .parent-hub-header {
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .parent-hub-title {
+      font-size: clamp(1.7rem, 7vw, 2.3rem);
+      letter-spacing: -0.03em;
+    }
+
+    .parent-hub-button {
+      width: 100%;
+    }
+
+    .parent-resource-card,
+    .school-calendar-card,
+    .key-dates-card {
+      border-radius: 1rem;
+      padding: 0.9rem;
+    }
+
+    .resource-header,
+    .calendar-header {
+      align-items: flex-start;
+    }
+
+    .resource-badge,
+    .calendar-badge {
+      align-self: flex-start;
+      margin-top: 0.15rem;
+    }
+
+    .resource-item {
+      padding: 0.85rem;
+    }
+
+    .resource-item-head {
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .resource-item-head .size-11 {
+      width: 2.5rem;
+      height: 2.5rem;
+      min-width: 2.5rem;
+    }
+
+    .resource-item h2 {
+      font-size: 1rem;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .resource-meta {
+      gap: 0.5rem 0.75rem;
+      font-size: 0.68rem;
+    }
+
+    .resource-item-download {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .calendar-embed {
+      overflow: hidden;
+      border-radius: 0.9rem;
+    }
+
+    .calendar-embed iframe {
+      min-height: 320px;
+      height: 340px;
+    }
+  }
+
   @media (max-width: 1023px) {
     html {
       scrollbar-width: none;
