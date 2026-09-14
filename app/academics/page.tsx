@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import {
   Baby,
   BookOpen,
@@ -16,9 +17,13 @@ import {
   Users,
   Volleyball,
 } from 'lucide-react'
+import { FeesTable, FeesTableSkeleton } from '@/components/fees-table'
 import { PageHeader } from '@/components/page-header'
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'Academics & Activities',
@@ -191,6 +196,19 @@ export default function AcademicsPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+        <SectionHeading
+          eyebrow="Tuition & Fees"
+          title={<span className="accent-underline">Transparent fees for families</span>}
+          description="Fee information is published directly from the approved school sheet so updates can be made by administration without needing a developer to edit the website."
+        />
+        <div className="mt-10">
+          <Suspense fallback={<FeesTableSkeleton />}>
+            <FeesTable />
+          </Suspense>
         </div>
       </section>
 
