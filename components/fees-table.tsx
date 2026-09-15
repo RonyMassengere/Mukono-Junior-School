@@ -10,7 +10,7 @@ function formatRequirements(requirements: string) {
 }
 
 const feeCircularButtonClass =
-  'inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary/90 px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_28px_-18px_rgba(48,63,159,0.8)] transition-all duration-200 hover:scale-[1.02] hover:from-accent hover:to-accent sm:w-auto sm:py-2.5'
+  'inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors duration-200 hover:bg-accent sm:w-auto sm:py-2.5'
 
 function FeesTableContent() {
   const [fees, setFees] = useState<FeeStructure[]>([])
@@ -20,10 +20,15 @@ function FeesTableContent() {
 
   useEffect(() => {
     let isMounted = true
+    let lastRequestAt = 0
+    let requestInFlight = false
 
     const loadFees = async () => {
+      const now = Date.now()
+      if (requestInFlight || now - lastRequestAt < 60000) return
+      lastRequestAt = now
+      requestInFlight = true
       try {
-        setLoading(true)
         setErrorState(false)
 
         const response = await fetch('/api/fees', { cache: 'no-store' })
@@ -32,14 +37,17 @@ function FeesTableContent() {
         }
 
         const payload = await response.json()
+        if (!Array.isArray(payload.fees) || payload.fees.length === 0) {
+          throw new Error('The fees sheet returned no usable records.')
+        }
 
         if (!isMounted) return
         setFees(payload.fees ?? [])
       } catch {
         if (!isMounted) return
         setErrorState(true)
-        setFees([])
       } finally {
+        requestInFlight = false
         if (isMounted) {
           setLoading(false)
         }
@@ -48,7 +56,7 @@ function FeesTableContent() {
 
     loadFees()
 
-    const intervalId = window.setInterval(loadFees, 30000)
+    const intervalId = window.setInterval(loadFees, 60000)
     const handleFocus = () => loadFees()
     const handleVisibility = () => {
       if (!document.hidden) {
@@ -67,7 +75,7 @@ function FeesTableContent() {
     }
   }, [])
 
-  if (loading) {
+  if (loading && !fees.length) {
     return (
       <div className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 text-sm text-slate-600">
         <Loader2 className="size-4 animate-spin text-primary" />
@@ -76,7 +84,7 @@ function FeesTableContent() {
     )
   }
 
-  if (errorState || !fees.length) {
+  if (!fees.length) {
     return (
       <div className="space-y-4">
         <div className="flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 shadow-sm">
@@ -104,7 +112,7 @@ function FeesTableContent() {
       <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
         <div className="overflow-x-auto">
           <table className="min-w-[680px] border-collapse text-left sm:min-w-full">
-            <thead className="bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground">
+            <thead className="bg-primary text-primary-foreground">
               <tr>
                 <th className="px-3 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] sm:px-6 sm:text-sm">Class Level</th>
                 <th className="px-3 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] sm:px-6 sm:text-sm">Day Scholar Fee</th>
@@ -127,6 +135,12 @@ function FeesTableContent() {
           </table>
         </div>
       </div>
+
+      {errorState && (
+        <p className="text-xs text-amber-700">
+          The latest refresh could not be completed. Showing the last available fee schedule.
+        </p>
+      )}
 
       <div className="flex justify-start">
         <a

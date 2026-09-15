@@ -21,6 +21,7 @@ import { FeesTable, FeesTableSkeleton } from '@/components/fees-table'
 import { PageHeader } from '@/components/page-header'
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
+import { AcademicPerformance } from '@/components/academic-performance'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -195,6 +196,19 @@ export default function AcademicsPage() {
                 </article>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-muted/50 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5">
+          <SectionHeading
+            eyebrow="PLE Results"
+            title={<span className="accent-underline">Celebrating learner achievement</span>}
+            description="Explore the latest PLE performance results, refreshed automatically from the school's published results sheet."
+          />
+          <div className="mt-10">
+            <AcademicPerformance />
           </div>
         </div>
       </section>
