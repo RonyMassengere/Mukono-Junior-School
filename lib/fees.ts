@@ -5,6 +5,8 @@ export interface FeeStructure {
   requirements: string
 }
 
+const SHEET_FETCH_TIMEOUT_MS = 5000
+
 function normalizeHeader(value: string) {
   return value
     .replace(/\u00a0/g, ' ')
@@ -81,6 +83,7 @@ export async function getFeesFromSheet(): Promise<FeeStructure[]> {
       headers: {
         Accept: 'text/csv, text/plain, */*',
       },
+      signal: AbortSignal.timeout(SHEET_FETCH_TIMEOUT_MS),
     })
 
     if (!response.ok) {

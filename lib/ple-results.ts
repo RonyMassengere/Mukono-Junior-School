@@ -8,6 +8,8 @@ export interface PleResult {
   photoUrl: string
 }
 
+const SHEET_FETCH_TIMEOUT_MS = 5000
+
 function normalizeHeader(value: string) {
   return value.replace(/\u00a0/g, ' ').replace(/[^a-zA-Z0-9]+/g, ' ').trim().toLowerCase()
 }
@@ -79,6 +81,7 @@ export async function getPleResults(): Promise<PleResult[]> {
     const response = await fetch(getCsvUrl(sheetUrl), {
       next: { revalidate: 30 },
       headers: { Accept: 'text/csv, text/plain, */*' },
+      signal: AbortSignal.timeout(SHEET_FETCH_TIMEOUT_MS),
     })
     if (!response.ok) throw new Error(`Unable to fetch PLE results: ${response.status}`)
 
